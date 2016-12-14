@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<!-- 平板电视 -->
+	<bean class="com.yiqiang.crawler.JD3CCrawler">
+		<!-- 设置url {page} 是分页参数 -->
+		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=737,794,798&amp;page={page}"/>
+		<!-- 设置对应系统中的类目ID -->
+		<constructor-arg index="1" value="76"/>
+		
+		<!-- 系统服务 -->
+		<property name="httpService" ref="httpService"/>
+		<property name="itemDao" ref="itemDao"/>
+		<property name="indexWriter" ref="indexWriter"/>
+	</bean>
+	
+	<!-- 手机 -->
+	<bean class="com.yiqiang.crawler.JD3CCrawler">
+		<!-- 设置url {page} 是分页参数 -->
+		<constructor-arg index="0" value="http://list.jd.com/list.html?cat=9987,653,655&amp;page={page}"/>
+		<!-- 设置对应系统中的类目ID -->
+		<constructor-arg index="1" value="560"/>
+		
+		<!-- 系统服务 -->
+		<property name="httpService" ref="httpService"/>
+		<property name="itemDao" ref="itemDao"/>
+		<property name="indexWriter" ref="indexWriter"/>
+	</bean>
+
+</beans>
